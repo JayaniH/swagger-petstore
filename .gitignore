@@ -1,6 +1,8 @@
 build/
 lib/*.jar
-target
+target/*
+!target/lib
+!target/*.war
 .idea
 .idea_modules
 .settings
