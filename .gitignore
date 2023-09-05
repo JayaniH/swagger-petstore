@@ -1,6 +1,6 @@
 build/
 lib/*.jar
-target/
+target
 # target/*
 # !target/lib
 # !target/*.war
