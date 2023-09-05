@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM maven:3.8.7-eclipse-temurin-19-alpine
 
 ADD . /swagger-petstore
 WORKDIR /swagger-petstore
@@ -8,6 +8,8 @@ RUN ls -l
 RUN mvn clean install
 
 RUN ls -l
+
+FROM openjdk:8-jre-alpine
 
 COPY target/lib/jetty-runner.jar /swagger-petstore/jetty-runner.jar
 COPY target/*.war /swagger-petstore/server.war
