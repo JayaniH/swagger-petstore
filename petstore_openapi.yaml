@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: Swagger Petstore 2
+  title: Swagger Petstore - OpenAPI 3.0
   description: >-
     This is a sample Pet Store Server based on the OpenAPI 3.0 specification. 
     You can find out more about
@@ -67,13 +67,6 @@ paths:
           description: Pet not found
         '405':
           description: Validation exception
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
     post:
       tags:
         - pet
@@ -105,13 +98,6 @@ paths:
                 $ref: '#/components/schemas/Pet'
         '405':
           description: Invalid input
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
   /pet/findByStatus:
     get:
       tags:
@@ -149,13 +135,6 @@ paths:
                   $ref: '#/components/schemas/Pet'
         '400':
           description: Invalid status value
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
   /pet/findByTags:
     get:
       tags:
@@ -192,13 +171,6 @@ paths:
                   $ref: '#/components/schemas/Pet'
         '400':
           description: Invalid tag value
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
   /pet/{petId}:
     get:
       tags:
@@ -230,13 +202,6 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Pet not found
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
     post:
       tags:
         - pet
@@ -272,13 +237,6 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
     delete:
       tags:
         - pet
@@ -306,13 +264,6 @@ paths:
       responses:
         '400':
           description: Invalid pet value
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
   /user/{username}:
     get:
       tags:
@@ -343,13 +294,6 @@ paths:
           description: Invalid username supplied
         '404':
           description: User not found
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-      x-auth-type: Application & Application User
   /user:
     post:
       tags:
@@ -373,12 +317,6 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/User'
-      security:
-        - default: []
-      x-throttling-tier: Unlimited
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
 components:
   schemas:
     Category:
@@ -492,47 +430,3 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Pet'
-  securitySchemes:
-    default:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://test.com
-          scopes: {}
-x-wso2-disable-security: false
-x-wso2-auth-header: Authorization
-x-wso2-cors:
-  corsConfigurationEnabled: false
-  accessControlAllowOrigins:
-    - '*'
-  accessControlAllowCredentials: false
-  accessControlAllowHeaders:
-    - authorization
-    - Access-Control-Allow-Origin
-    - Content-Type
-    - SOAPAction
-    - apikey
-    - API-Key
-    - testKey
-  accessControlAllowMethods:
-    - GET
-    - PUT
-    - POST
-    - DELETE
-    - PATCH
-    - OPTIONS
-x-wso2-production-endpoints:
-  urls:
-    - https://petstore3.swagger.io/api/v3
-  type: http
-x-wso2-sandbox-endpoints:
-  urls:
-    - https://petstore3.swagger.io/api/v3
-  type: http
-x-wso2-basePath: /b0d941db-e69a-46ae-b4bc-8d65010bd7de/xlyb/swaggerpetstore/1.0.1
-x-wso2-transports:
-  - http
-  - https
-x-wso2-response-cache:
-  enabled: false
-  cacheTimeoutInSeconds: 300
