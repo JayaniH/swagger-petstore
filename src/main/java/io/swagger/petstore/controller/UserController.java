@@ -51,22 +51,22 @@ public class UserController {
     //     return createUser(request, user);
     // }
 
-    // public ResponseContext getUserByName(final RequestContext request, final String username) {
-    //     if (username == null) {
-    //         return new ResponseContext()
-    //                 .status(Response.Status.BAD_REQUEST)
-    //                 .entity("No username provided. Try again?");
-    //     }
+    public ResponseContext getUserByName(final RequestContext request, final String username) {
+        if (username == null) {
+            return new ResponseContext()
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity("No username provided. Try again?");
+        }
 
-    //     final User user = userData.findUserByName(username);
-    //     if (user == null) {
-    //         return new ResponseContext().status(Response.Status.NOT_FOUND).entity("User not found");
-    //     }
+        final User user = userData.findUserByName(username);
+        if (user == null) {
+            return new ResponseContext().status(Response.Status.NOT_FOUND).entity("User not found");
+        }
 
-    //     return new ResponseContext()
-    //             .contentType(Util.getMediaType(request))
-    //             .entity(user);
-    // }
+        return new ResponseContext()
+                .contentType(Util.getMediaType(request))
+                .entity(user);
+    }
 
     // public ResponseContext createUsersWithArrayInput(final RequestContext request, final User[] users) {
     //     if (users == null || users.length == 0) {
