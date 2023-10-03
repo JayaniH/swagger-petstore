@@ -320,6 +320,9 @@ paths:
 components:
   schemas:
     Category:
+      required:
+        - id
+        - name
       type: object
       properties:
         id:
@@ -332,6 +335,9 @@ components:
       xml:
         name: category
     Tag:
+      required:
+        - id
+        - name
       type: object
       properties:
         id:
@@ -343,8 +349,12 @@ components:
         name: tag
     Pet:
       required:
+        - id
         - name
+        - category
         - photoUrls
+        - tags
+        - status
       type: object
       properties:
         id:
@@ -380,6 +390,15 @@ components:
       xml:
         name: pet
     User:
+      required:
+        - id
+        - username
+        - firstName
+        - lastName
+        - email
+        - password
+        - phone
+        - userStatus
       type: object
       properties:
         id:
